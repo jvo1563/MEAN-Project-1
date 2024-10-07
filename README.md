@@ -24,7 +24,7 @@ deleted while they have players on them, etc.
   - Must be a full-stack solution consisting of:
     - Angular frontend (HTML, CSS, TS)
     - Express backend utilizing TypeORM
-    - MySQL or MongoDB database
+    - PostgreSQL Database
   - Code should be available in a public GitHub repository
   - Possesses all required CRUD functionality
   - Handles edge cases, errors and exceptions effectively, application-wide
