@@ -13,24 +13,31 @@ happens if there are no coaches assigned to a team, what happens when teams are
 deleted while they have players on them, etc.
 
 ### Functional Requirements:
-  - Must be a full-stack solution consisting of:
-    - Angular frontend (HTML, CSS, TS)
-    - Express backend utilizing TypeORM
-    - PostgreSQL Database
-  - Code should be available in a public GitHub repository
-  - Possesses all required CRUD functionality
-  - Handles edge cases, errors and exceptions effectively, application-wide
-    - Deleting a team what happens to the members
+
+-   Must be a full-stack solution consisting of:
+    -   Angular frontend (HTML, CSS, TS)
+    -   Express backend utilizing TypeORM
+    -   PostgreSQL Database
+-   Code should be available in a public GitHub repository
+-   Possesses all required CRUD functionality
+-   Handles edge cases, errors and exceptions effectively, application-wide
+    -   Deleting a team what happens to the members
+
 ### Non-Functional Requirements:
-  - Well-documented code
-  - Code upholds industry best practices (Solid/Dry)
-  - Industry-Grade UI (User Interface)
-  - Intuitive UX (User Experience)
+
+-   Well-documented code
+-   Code upholds industry best practices (Solid/Dry)
+-   Industry-Grade UI (User Interface)
+-   Intuitive UX (User Experience)
+
 ### Bonus Objectives (suggestions only):
-  - Use both types of database for different aspects of your project
-  - Achieve 90% code coverage for unit testing
-  - Deploy your application to a cloud provider
-  - Incorporate the scheduling of actual games into your application
-  - Anything else you might find challenging/exciting to implement!
-  - (Don’t forget to hit those functional/non-functional requirements first…)
-  - Authentication with accounts
+
+-   Use both types of database for different aspects of your project
+-   Achieve 90% code coverage for unit testing
+-   Deploy your application to a cloud provider
+-   Incorporate the scheduling of actual games into your application
+-   Anything else you might find challenging/exciting to implement!
+-   (Don’t forget to hit those functional/non-functional requirements first…)
+-   Authentication with accounts
+
+![image](ERD.png)
