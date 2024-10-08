@@ -1,0 +1,42 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table "team" {
+  "team_id" SERIAL [pk, increment]
+  "team_name" VARCHAR(255) [unique, not null]
+  "team_logo" TEXT
+  "team_city" VARCHAR(100)
+  "team_founded_year" INTEGER
+  "total_players" INTEGER [default: 0]
+  "max_capacity" INTEGER [default: 20]
+  "wins" INTEGER [default: 0]
+  "losses" INTEGER [default: 0]
+}
+
+Table "player" {
+  "id" SERIAL [pk, increment]
+  "first_name" VARCHAR(255) [not null]
+  "last_name" VARCHAR(255) [not null]
+  "height" NUMERIC(4,2)
+  "weight" NUMERIC(5,2)
+  "position" VARCHAR(50)
+  "jersey_number" INTEGER
+  "date_of_birth" DATE
+  "goals_scored" INTEGER [default: 0]
+  "team_id" INTEGER
+}
+
+Table "coach" {
+  "id" SERIAL [pk, increment]
+  "first_name" VARCHAR(255) [not null]
+  "last_name" VARCHAR(255) [not null]
+  "years_of_experience" INTEGER
+  "salary" NUMERIC(10,2)
+  "email" VARCHAR(255)
+  "phone_number" VARCHAR(15)
+  "team_id" INTEGER
+}
+
+Ref:"team"."team_id" < "player"."team_id" [delete: set null]
+
+Ref:"team"."team_id" < "coach"."team_id" [delete: set null]
