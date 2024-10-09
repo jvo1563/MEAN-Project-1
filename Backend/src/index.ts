@@ -3,6 +3,7 @@ import { teamRouter } from "./controllers/team.controllers";
 import { playerRouter } from "./controllers/player.controller";
 import { unknownEndpoint } from "./middleware/unknown-endpoint.middleware";
 import { errorHandler } from "./middleware/error.middleware";
+
 const express = require("express");
 require("dotenv").config();
 

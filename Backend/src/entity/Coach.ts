@@ -24,6 +24,9 @@ export class Coach {
 	@Column({ type: "varchar", length: 15, nullable: true })
 	phone_number: string;
 
+	@Column({ type: "int" })
+	team_id: number;
+
 	@ManyToOne(() => Team, (team) => team.coaches, { nullable: true, onDelete: "SET NULL" })
 	@JoinColumn({ name: "team_id" })
 	team: Team;

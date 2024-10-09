@@ -30,6 +30,10 @@ export class Player {
 	@Column({ type: "int", default: 0 })
 	goals_scored: number;
 
+	@Column({ type: "int" })
+	team_id: number;
+
+	// @ManyToOne(() => Team, (team) => team.players, { nullable: true, onDelete: "SET NULL", eager: true })
 	@ManyToOne(() => Team, (team) => team.players, { nullable: true, onDelete: "SET NULL" })
 	@JoinColumn({ name: "team_id" })
 	team: Team;

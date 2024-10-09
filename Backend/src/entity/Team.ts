@@ -5,7 +5,7 @@ import { Coach } from "./Coach";
 @Entity()
 export class Team {
 	@PrimaryGeneratedColumn()
-	team_id: number;
+	id: number;
 
 	@Column({ type: "varchar", length: 255, unique: true })
 	team_name: string;
