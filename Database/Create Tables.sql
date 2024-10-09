@@ -1,7 +1,5 @@
 DROP TABLE IF EXISTS public.coach;
-
 DROP TABLE IF EXISTS public.player;
-
 DROP TABLE IF EXISTS public.team;
 
 CREATE TABLE "team" (
@@ -41,10 +39,9 @@ CREATE TABLE "coach" (
 );
 
 ALTER TABLE "player" ADD FOREIGN KEY ("team_id") REFERENCES "team" ("id") ON DELETE SET NULL;
-
 ALTER TABLE "coach" ADD FOREIGN KEY ("team_id") REFERENCES "team" ("id") ON DELETE SET NULL;
 
--- Add Indexes (Optional for performance optimization)
+-- Add Indexes for performance optimization
 CREATE INDEX idx_team_name ON team(team_name);
 CREATE INDEX idx_player_team_id ON player(team_id);
 CREATE INDEX idx_coach_team_id ON coach(team_id);
@@ -87,7 +84,7 @@ BEGIN
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
--- Trigger after insert, delete, or update on player table
+-- Trigger function after insert, delete, or update on player table
 CREATE TRIGGER update_total_players_trigger
 AFTER INSERT OR DELETE OR UPDATE ON player
 FOR EACH ROW EXECUTE FUNCTION update_total_players();
@@ -104,7 +101,7 @@ BEGIN
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
--- Trigger function for max capacity
+-- Trigger function after insert or update on player table
 CREATE TRIGGER check_max_capacity
 BEFORE INSERT OR UPDATE ON player
 FOR EACH ROW
