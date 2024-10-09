@@ -80,6 +80,6 @@ VALUES
 ('Samantha', 'King', 6, 60000.00, 'samantha.king@example.com', '123-456-7897', NULL),
 ('Kevin', 'Perez', 6, 61000.00, 'kevin.perez@example.com', '123-456-7898', NULL);
 
-UPDATE "team" SET total_players = (
-    SELECT COUNT(*) FROM "player" WHERE "player".team_id = "team".team_id
-);
+--UPDATE "team" SET total_players = (
+--    SELECT COUNT(*) FROM "player" WHERE "player".team_id = "team".team_id
+--);

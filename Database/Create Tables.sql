@@ -43,3 +43,23 @@ CREATE TABLE "coach" (
 ALTER TABLE "player" ADD FOREIGN KEY ("team_id") REFERENCES "team" ("team_id") ON DELETE SET NULL;
 
 ALTER TABLE "coach" ADD FOREIGN KEY ("team_id") REFERENCES "team" ("team_id") ON DELETE SET NULL;
+
+-- Add Indexes (Optional for performance optimization)
+CREATE INDEX idx_team_name ON team(team_name);
+CREATE INDEX idx_player_team_id ON player(team_id);
+CREATE INDEX idx_coach_team_id ON coach(team_id);
+
+CREATE OR REPLACE FUNCTION update_total_players()
+RETURNS TRIGGER AS $$
+BEGIN
+  UPDATE team
+  SET total_players = (SELECT COUNT(*) FROM player WHERE team_id = NEW.team_id)
+  WHERE team_id = NEW.team_id;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Trigger after insert or delete on player table
+CREATE TRIGGER update_total_players_trigger
+AFTER INSERT OR DELETE OR UPDATE ON player
+FOR EACH ROW EXECUTE FUNCTION update_total_players();
