@@ -2,7 +2,7 @@
 // Docs: https://dbml.dbdiagram.io/docs
 
 Table "team" {
-  "team_id" SERIAL [pk, increment]
+  "id" SERIAL [pk, increment]
   "team_name" VARCHAR(255) [unique, not null]
   "team_logo" TEXT
   "team_city" VARCHAR(100)
@@ -37,6 +37,6 @@ Table "coach" {
   "team_id" INTEGER
 }
 
-Ref:"team"."team_id" < "player"."team_id" [delete: set null]
+Ref:"team"."id" < "player"."team_id" [delete: set null]
 
-Ref:"team"."team_id" < "coach"."team_id" [delete: set null]
+Ref:"team"."id" < "coach"."team_id" [delete: set null]
