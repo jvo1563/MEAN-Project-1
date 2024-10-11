@@ -1,0 +1,29 @@
+<header class="header">
+  <div class="card">
+    <p-menubar [model]="items">
+      <ng-template pTemplate="end">
+        <div style="display: flex; align-items: center">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/53/53283.png"
+            height="40"
+            class="p-mr-2"
+            alt="brand logo"
+          />
+          <h2 style="margin-left: 20px">Soccer League Management</h2>
+        </div>
+      </ng-template>
+      <!-- <ng-template pTemplate="end">
+        <label>
+          <input type="text" pInputText placeholder="Szukaj" />
+        </label>
+        <button
+          type="button"
+          pButton
+          label="Wyloguj"
+          icon="pi pi-power-off"
+          style="margin-left: 0.25em"
+        ></button>
+      </ng-template> -->
+    </p-menubar>
+  </div>
+</header>
