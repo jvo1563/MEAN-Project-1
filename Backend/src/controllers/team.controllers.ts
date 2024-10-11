@@ -13,9 +13,9 @@ router.get("/", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
-router.get("/:team_id", async (req: Request, res: Response, next: NextFunction) => {
+router.get("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const teamRepository = AppDataSource.getRepository(Team);
-	const teamId = parseInt(req.params.team_id);
+	const teamId = parseInt(req.params.id);
 
 	await teamRepository
 		.findOne({
@@ -42,11 +42,11 @@ router.post("/", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
-router.put("/:team_id", async (req: Request, res: Response, next: NextFunction) => {
+router.put("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const teamRepository = AppDataSource.getRepository(Team);
-	const teamId = parseInt(req.params.team_id);
+	const teamId = parseInt(req.params.id);
 
-	if (req.body.team_id && req.body.team_id != teamId) {
+	if (req.body.id && req.body.id != teamId) {
 		return res.status(400).json({ message: "Team ID cannot be changed" });
 	}
 
@@ -54,7 +54,7 @@ router.put("/:team_id", async (req: Request, res: Response, next: NextFunction) 
 		.createQueryBuilder()
 		.update(Team)
 		.set(req.body)
-		.where("team_id = :id", { id: teamId })
+		.where("id = :id", { id: teamId })
 		.returning("*")
 		.execute()
 		.then((results) => {
@@ -66,9 +66,9 @@ router.put("/:team_id", async (req: Request, res: Response, next: NextFunction) 
 		.catch((error) => next(error));
 });
 
-router.delete("/:team_id", async (req: Request, res: Response, next: NextFunction) => {
+router.delete("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const teamRepository = AppDataSource.getRepository(Team);
-	const teamId = parseInt(req.params.team_id);
+	const teamId = parseInt(req.params.id);
 
 	await teamRepository
 		.delete({
