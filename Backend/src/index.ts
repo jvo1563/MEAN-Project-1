@@ -1,6 +1,7 @@
 import { AppDataSource } from "./data-source";
 import { teamRouter } from "./controllers/team.controllers";
 import { playerRouter } from "./controllers/player.controller";
+import { coachRouter } from "./controllers/coach.controller";
 import { unknownEndpoint } from "./middleware/unknown-endpoint.middleware";
 import { errorHandler } from "./middleware/error.middleware";
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use("/api/team", teamRouter);
 app.use("/api/player", playerRouter);
+app.use("/api/coach", coachRouter);
 
 app.use(unknownEndpoint);
 app.use(errorHandler);
