@@ -11,6 +11,9 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 
+const cors = require("cors");
+app.use(cors({ origin: process.env.CORS_WHITELIST.split(",") }));
+
 app.use("/api/team", teamRouter);
 app.use("/api/player", playerRouter);
 app.use("/api/coach", coachRouter);
