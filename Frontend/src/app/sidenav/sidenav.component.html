@@ -1,0 +1,303 @@
+<!-- ========== MAIN CONTENT ========== -->
+
+<!-- Sidebar -->
+<div
+  id="hs-application-sidebar"
+  class="hs-overlay [--auto-close:lg] hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform w-[260px] h-full hidden fixed inset-y-0 start-0 z-[60] bg-green-700 lg:block lg:translate-x-0 lg:end-auto lg:bottom-0"
+  role="dialog"
+  tabindex="-1"
+  aria-label="Sidebar"
+>
+  <div class="relative flex flex-col h-full max-h-full">
+    <div class="pl-4 pt-4 flex items-center">
+      <!-- Logo -->
+      <img
+        src="https://icons.iconarchive.com/icons/icons-land/sport/256/Soccer-Ball-icon.png"
+        class="h-12"
+        alt="brand logo"
+      />
+      <h2 class="text-2xl font-semibold text-white text-center">
+        Soccer League Manager
+      </h2>
+      <!-- End Logo -->
+    </div>
+
+    <!-- Content -->
+    <div
+      class="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300"
+    >
+      <nav
+        class="hs-accordion-group p-3 w-full flex flex-col flex-wrap"
+        data-hs-accordion-always-open
+      >
+        <ul class="flex flex-col space-y-1">
+          <li>
+            <a
+              class="flex items-center gap-x-3.5 py-2 px-2.5 bg-white/10 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
+              href="#"
+            >
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Home
+            </a>
+          </li>
+
+          <li class="hs-accordion" id="users-accordion">
+            <button
+              type="button"
+              class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
+              aria-expanded="true"
+              aria-controls="users-accordion-child"
+            >
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 6a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm-1.5 8a4 4 0 0 0-4 4 2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-3Zm6.82-3.096a5.51 5.51 0 0 0-2.797-6.293 3.5 3.5 0 1 1 2.796 6.292ZM19.5 18h.5a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-1.1a5.503 5.503 0 0 1-.471.762A5.998 5.998 0 0 1 19.5 18ZM4 7.5a3.5 3.5 0 0 1 5.477-2.889 5.5 5.5 0 0 0-2.796 6.293A3.501 3.501 0 0 1 4 7.5ZM7.1 12H6a4 4 0 0 0-4 4 2 2 0 0 0 2 2h.5a5.998 5.998 0 0 1 3.071-5.238A5.505 5.505 0 0 1 7.1 12Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              Teams
+
+              <svg
+                class="hs-accordion-active:block ms-auto hidden size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m18 15-6-6-6 6" />
+              </svg>
+
+              <svg
+                class="hs-accordion-active:hidden ms-auto block size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+
+            <div
+              id="users-accordion-child"
+              class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
+              role="region"
+              aria-labelledby="users-accordion"
+            >
+              <ul
+                class="hs-accordion-group ps-8 pt-1 space-y-1"
+                data-hs-accordion-always-open
+              >
+                <li class="hs-accordion" id="users-accordion-sub-1">
+                  <button
+                    type="button"
+                    class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
+                    aria-expanded="true"
+                    aria-controls="users-accordion-sub-1-child"
+                  >
+                    Sub Menu 1
+
+                    <svg
+                      class="hs-accordion-active:block ms-auto hidden size-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m18 15-6-6-6 6" />
+                    </svg>
+
+                    <svg
+                      class="hs-accordion-active:hidden ms-auto block size-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+
+                  <div
+                    id="users-accordion-sub-1-child"
+                    class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
+                    role="region"
+                    aria-labelledby="users-accordion-sub-1"
+                  >
+                    <ul class="pt-1 space-y-1">
+                      <li>
+                        <a
+                          class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
+                          href="#"
+                        >
+                          Link 1
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
+                          href="#"
+                        >
+                          Link 2
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
+                          href="#"
+                        >
+                          Link 3
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="hs-accordion" id="users-accordion-sub-2">
+                  <button
+                    type="button"
+                    class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
+                    aria-expanded="true"
+                    aria-controls="users-accordion-sub-2-child"
+                  >
+                    Sub Menu 2
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="hs-accordion" id="account-accordion">
+            <button
+              type="button"
+              class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
+              aria-expanded="true"
+              aria-controls="account-accordion-child"
+            >
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              Players
+            </button>
+          </li>
+
+          <li class="hs-accordion" id="projects-accordion">
+            <button
+              type="button"
+              class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
+              aria-expanded="true"
+              aria-controls="projects-accordion-child"
+            >
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2a10 10 0 1 0 10 10A10.009 10.009 0 0 0 12 2Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.093 20.093 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM10 3.707a8.82 8.82 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.755 45.755 0 0 0 10 3.707Zm-6.358 6.555a8.57 8.57 0 0 1 4.73-5.981 53.99 53.99 0 0 1 3.168 4.941 32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.641 31.641 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM12 20.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 15.113 13a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              Coaches
+            </button>
+          </li>
+
+          <li>
+            <a
+              class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10"
+              href="#"
+            >
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              Schedule
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- End Content -->
+  </div>
+</div>
+<!-- End Sidebar -->
+
+<!-- Content -->
+<div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
+  <!-- your content goes here ... -->
+</div>
+<!-- End Content -->
+<!-- ========== END MAIN CONTENT ========== -->

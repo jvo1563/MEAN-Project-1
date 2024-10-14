@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import "primeng/resources/themes/saga-green/theme.css";
-@import "primeng/resources/primeng.css";
-@import "primeicons/primeicons.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0px;
+}
+
+main {
+  padding-top: 50px;
+  margin-bottom: 40px;
+}

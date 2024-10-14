@@ -1,29 +1,22 @@
-<header class="header">
-  <div class="card">
-    <p-menubar [model]="items">
-      <ng-template pTemplate="end">
-        <div style="display: flex; align-items: center">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/53/53283.png"
-            height="40"
-            class="p-mr-2"
-            alt="brand logo"
-          />
-          <h2 style="margin-left: 20px">Soccer League Management</h2>
-        </div>
-      </ng-template>
-      <!-- <ng-template pTemplate="end">
-        <label>
-          <input type="text" pInputText placeholder="Szukaj" />
-        </label>
-        <button
-          type="button"
-          pButton
-          label="Wyloguj"
-          icon="pi pi-power-off"
-          style="margin-left: 0.25em"
-        ></button>
-      </ng-template> -->
-    </p-menubar>
+<div class="hs-dropdown relative inline-flex">
+  <button
+    id="hs-dropdown-unstyled"
+    type="button"
+    class="hs-dropdown-toggle inline-flex justify-center items-center gap-x-2"
+    aria-expanded="false"
+    aria-label="Menu"
+  >
+    Actions
+  </button>
+
+  <div
+    class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white"
+    role="menu"
+    aria-labelledby="hs-dropdown-unstyled"
+  >
+    <a class="block" href="#">Newsletter</a>
+    <a class="block" href="#">Purchases</a>
+    <a class="block" href="#">Downloads</a>
+    <a class="block" href="#">Team Account</a>
   </div>
-</header>
+</div>
