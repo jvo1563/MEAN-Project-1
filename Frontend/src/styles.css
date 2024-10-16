@@ -8,8 +8,8 @@ body {
 }
 
 main {
-  padding-top: 50px;
-  margin-bottom: 40px;
+  padding: 0px;
+  margin: 0px;
 }
 
 @layer utilities {
