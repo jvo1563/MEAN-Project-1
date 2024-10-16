@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Team } from '../models/team';
 import { HttpService } from '../services/http.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -36,7 +37,6 @@ export class HomeComponent {
           );
         });
       this.teams = tempTeams;
-      console.log(this.teams);
     });
   }
 }

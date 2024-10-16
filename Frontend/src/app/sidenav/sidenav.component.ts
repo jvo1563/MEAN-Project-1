@@ -1,12 +1,49 @@
 import { Component } from '@angular/core';
+import { Team } from '../models/team';
+import { HttpService } from '../services/http.service';
+import { RefreshTeamsService } from '../services/refresh-teams.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './sidenav.component.html',
-  styleUrl: './sidenav.component.css'
+  styleUrl: './sidenav.component.css',
 })
 export class SidenavComponent {
+  constructor(
+    private httpService: HttpService,
+    private refreshTeamsService: RefreshTeamsService,
+  ) {
+    this.getTeams();
+    this.refreshTeamsService.refreshObservable$.subscribe(() => {
+      this.getTeams();
+    });
+  }
 
+  teams: Team[] = [];
+
+  getTeams() {
+    this.httpService.getTeams().subscribe((response) => {
+      let tempTeams: Team[] = [];
+      if (response.body)
+        response.body.forEach((team) => {
+          tempTeams.push(
+            new Team(
+              team.id,
+              team.team_name,
+              team.team_logo,
+              team.team_city,
+              team.team_founded_year,
+              team.total_players,
+              team.max_capacity,
+              team.wins,
+              team.losses,
+            ),
+          );
+        });
+      this.teams = tempTeams;
+    });
+  }
 }

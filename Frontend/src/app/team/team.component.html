@@ -1,0 +1,641 @@
+<main>
+  <!-- Hero -->
+  <div
+    class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 border border-gray-200 rounded-xl shadow-sm overflow-hidden"
+  >
+    <!-- Grid -->
+    <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
+      <div>
+        <span
+          class="block mb-1 text-xs font-semibold uppercase text-green-600 text-lg"
+        >
+          {{ team.team_city }}
+        </span>
+        <h1
+          class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight"
+        >
+          {{ team.team_name }}
+        </h1>
+        <p class="mt-0 mb-4 text-lg text-gray-800">
+          Founding Year: {{ team.team_founded_year }}
+        </p>
+
+        <p class="text-lg">
+          <strong>Record:</strong> {{ team.wins }} Wins,
+          {{ team.losses }} Losses
+        </p>
+        <p class="text-lg">
+          <strong>Total Players:</strong> {{ team.total_players }} /
+          {{ team.max_capacity }}
+        </p>
+
+        <!-- Buttons -->
+        <div class="mt-7 grid gap-3 w-full sm:inline-flex">
+          <a
+            class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+            href="#"
+          >
+            Get started
+            <svg
+              class="shrink-0 size-4"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </a>
+          <a
+            class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+            href="#"
+          >
+            Contact sales team
+          </a>
+        </div>
+        <!-- End Buttons -->
+      </div>
+      <!-- End Col -->
+
+      <div class="relative ms-60">
+        <img
+          class="rounded-xl max-h-80 max-w-80"
+          src="{{ team.team_logo }}"
+          alt="Team Logo"
+        />
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Grid -->
+  </div>
+  <!-- End Hero -->
+  <!-- Players Table -->
+  <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <!-- Card -->
+    <div class="flex flex-col">
+      <div class="-m-1.5 overflow-x-auto">
+        <div class="p-1.5 min-w-full inline-block align-middle">
+          <div
+            class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden"
+          >
+            <!-- Header -->
+            <div
+              class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200"
+            >
+              <div>
+                <h2 class="text-xl font-semibold text-gray-800">Players</h2>
+              </div>
+
+              <div>
+                <div class="inline-flex gap-x-2">
+                  <a
+                    class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                    href="#"
+                  >
+                    <svg
+                      class="shrink-0 size-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
+                    </svg>
+                    Create
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- End Header -->
+
+            <!-- Table -->
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Name
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Team
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Jersey
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Position
+                      </span>
+                    </div>
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Goals
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Height
+                      </span>
+                    </div>
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Weight
+                      </span>
+                    </div>
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Date of Birth
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-end"></th>
+                </tr>
+              </thead>
+
+              <tbody class="divide-y divide-gray-200">
+                @for (player of players; track player.id) {
+                  <tr>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <span class="text-sm text-gray-600"
+                          >{{ player.first_name }} {{ player.last_name }}</span
+                        >
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <div class="flex items-center gap-x-2">
+                          <img
+                            class="inline-block size-6 rounded-full"
+                            src="{{ player.team.team_logo }}"
+                            alt="Team Logo"
+                          />
+                          <div class="grow">
+                            <span class="text-sm text-gray-600">{{
+                              player.team.team_name
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <div class="flex items-center gap-x-2">
+                          <div class="grow">
+                            <span class="text-sm text-gray-600">{{
+                              player.jersey_number
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <div class="flex items-center gap-x-2">
+                          <div class="grow">
+                            <span class="text-sm text-gray-600">{{
+                              player.position
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <div class="flex items-center gap-x-2">
+                          <div class="grow">
+                            <span class="text-sm text-gray-600">{{
+                              player.goals_scored
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <div class="flex items-center gap-x-2">
+                          <div class="grow">
+                            <span class="text-sm text-gray-600"
+                              >{{ player.height }}ft</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <div class="flex items-center gap-x-2">
+                          <div class="grow">
+                            <span class="text-sm text-gray-600"
+                              >{{ player.weight }}lbs</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <span class="text-sm text-gray-600">{{
+                          player.date_of_birth
+                        }}</span>
+                      </div>
+                    </td>
+
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-1.5">
+                        <div
+                          class="hs-dropdown [--placement:bottom-right] relative inline-block"
+                        >
+                          <button
+                            id="hs-table-dropdown-1"
+                            type="button"
+                            class="hs-dropdown-toggle py-1.5 px-2 inline-flex justify-center items-center gap-2 rounded-lg text-gray-700 align-middle disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-label="Dropdown"
+                          >
+                            <svg
+                              class="shrink-0 size-4"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <circle cx="12" cy="12" r="1" />
+                              <circle cx="19" cy="12" r="1" />
+                              <circle cx="5" cy="12" r="1" />
+                            </svg>
+                          </button>
+                          <div
+                            class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden divide-y divide-gray-200 min-w-40 z-10 bg-white shadow-2xl rounded-lg p-2 mt-2"
+                            role="menu"
+                            aria-orientation="vertical"
+                            aria-labelledby="hs-table-dropdown-1"
+                          >
+                            <div class="py-2 first:pt-0 last:pb-0">
+                              <a
+                                class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                href="#"
+                              >
+                                Update
+                              </a>
+                              <a
+                                class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                href="#"
+                              >
+                                Delete
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+            <!-- End Table -->
+
+            <!-- Footer -->
+            <div
+              class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200"
+            >
+              <div>
+                <p class="text-sm text-gray-600">
+                  <span class="font-semibold text-gray-800">{{
+                    players.length
+                  }}</span>
+                  results
+                </p>
+              </div>
+            </div>
+            <!-- End Footer -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Card -->
+  </div>
+  <!-- End Players Table -->
+  <!-- Coaches Table -->
+  <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <!-- Card -->
+    <div class="flex flex-col">
+      <div class="-m-1.5 overflow-x-auto">
+        <div class="p-1.5 min-w-full inline-block align-middle">
+          <div
+            class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden"
+          >
+            <!-- Header -->
+            <div
+              class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200"
+            >
+              <div>
+                <h2 class="text-xl font-semibold text-gray-800">Coaches</h2>
+              </div>
+
+              <div>
+                <div class="inline-flex gap-x-2">
+                  <a
+                    class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                    href="#"
+                  >
+                    <svg
+                      class="shrink-0 size-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
+                    </svg>
+                    Create
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- End Header -->
+
+            <!-- Table -->
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Name
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Team
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Email
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Phone Number
+                      </span>
+                    </div>
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Salary
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span
+                        class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                      >
+                        Years of Experience
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-end"></th>
+                </tr>
+              </thead>
+
+              <tbody class="divide-y divide-gray-200">
+                @for (coach of coaches; track coach.id) {
+                  <tr>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <span class="text-sm text-gray-600"
+                          >{{ coach.first_name }} {{ coach.last_name }}</span
+                        >
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <div class="flex items-center gap-x-2">
+                          <img
+                            class="inline-block size-6 rounded-full"
+                            src="{{ coach.team.team_logo }}"
+                            alt="Team Logo"
+                          />
+                          <div class="grow">
+                            <span class="text-sm text-gray-600">{{
+                              coach.team.team_name
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <div class="flex items-center gap-x-2">
+                          <div class="grow">
+                            <span class="text-sm text-gray-600">{{
+                              coach.email
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <div class="flex items-center gap-x-2">
+                          <div class="grow">
+                            <span class="text-sm text-gray-600">{{
+                              coach.phone_number
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <div class="flex items-center gap-x-2">
+                          <div class="grow">
+                            <span class="text-sm text-gray-600">{{
+                              coach.salary
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-3">
+                        <div class="flex items-center gap-x-2">
+                          <div class="grow">
+                            <span class="text-sm text-gray-600">{{
+                              coach.years_of_experience
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td class="size-px whitespace-nowrap">
+                      <div class="px-6 py-1.5">
+                        <div
+                          class="hs-dropdown [--placement:bottom-right] relative inline-block"
+                        >
+                          <button
+                            id="hs-table-dropdown-1"
+                            type="button"
+                            class="hs-dropdown-toggle py-1.5 px-2 inline-flex justify-center items-center gap-2 rounded-lg text-gray-700 align-middle disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-label="Dropdown"
+                          >
+                            <svg
+                              class="shrink-0 size-4"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <circle cx="12" cy="12" r="1" />
+                              <circle cx="19" cy="12" r="1" />
+                              <circle cx="5" cy="12" r="1" />
+                            </svg>
+                          </button>
+                          <div
+                            class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden divide-y divide-gray-200 min-w-40 z-10 bg-white shadow-2xl rounded-lg p-2 mt-2"
+                            role="menu"
+                            aria-orientation="vertical"
+                            aria-labelledby="hs-table-dropdown-1"
+                          >
+                            <div class="py-2 first:pt-0 last:pb-0">
+                              <a
+                                class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                href="#"
+                              >
+                                Update
+                              </a>
+                              <a
+                                class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                href="#"
+                              >
+                                Delete
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+            <!-- End Table -->
+
+            <!-- Footer -->
+            <div
+              class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200"
+            >
+              <div>
+                <p class="text-sm text-gray-600">
+                  <span class="font-semibold text-gray-800">{{
+                    coaches.length
+                  }}</span>
+                  results
+                </p>
+              </div>
+            </div>
+            <!-- End Footer -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Card -->
+  </div>
+  <!-- End Coaches Table -->
+</main>

@@ -1,0 +1,247 @@
+<main class="w-screen">
+  <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl">
+    Create a new team
+  </h1>
+
+  <!-- Card Section -->
+  <div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <form [formGroup]="createForm">
+      <!-- Card -->
+      <div
+        class="bg-white rounded-xl shadow p-4 sm:p-7 border-2 border-gray-200"
+      >
+        <div class="pt-0 p-4 sm:pt-0 sm:p-7">
+          <!-- Grid -->
+          <div class="space-y-4 sm:space-y-6">
+            <div class="sm:col-span-12 mt-6">
+              <h2 class="text-3xl font-semibold text-gray-800">
+                Team Information
+              </h2>
+            </div>
+            <div class="space-y-2">
+              <label
+                for="teamName"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Name
+              </label>
+
+              <input
+                id="teamName"
+                name="team_name"
+                formControlName="teamName"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="Enter team name"
+              />
+
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (
+                  teamName?.invalid && (teamName?.dirty || teamName?.touched)
+                ) {
+                  @if (teamName?.errors?.["required"]) {
+                    Name is required
+                  } @else if (teamName?.errors?.["maxlength"]) {
+                    Name is too long
+                  }
+                }
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <label
+                for="teamLogo"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Logo URL
+              </label>
+
+              <input
+                id="teamLogo"
+                name="team_logo"
+                formControlName="teamLogo"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="https://example.com/logo.png"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (
+                  teamLogo?.invalid && (teamLogo?.dirty || teamLogo?.touched)
+                ) {
+                  @if (teamLogo?.errors?.["required"]) {
+                    Logo URL is required
+                  } @else if (teamLogo?.errors?.["pattern"]) {
+                    Enter a valid URL
+                  } @else if (teamLogo?.errors?.["maxlength"]) {
+                    Logo URL is too long
+                  }
+                }
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <label
+                for="teamCity"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                City
+              </label>
+
+              <input
+                id="teamCity"
+                name="team_city"
+                formControlName="teamCity"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="Enter city name"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (
+                  teamCity?.invalid && (teamCity?.dirty || teamCity?.touched)
+                ) {
+                  @if (teamCity?.errors?.["required"]) {
+                    Team City is required
+                  } @else if (teamCity?.errors?.["maxlength"]) {
+                    Team City is too long
+                  }
+                }
+              </p>
+            </div>
+            <div class="space-y-2">
+              <label
+                for="teamFoundingYear"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Founding Year
+              </label>
+
+              <input
+                id="teamFoundingYear"
+                name="team_founded_year"
+                formControlName="teamFoundingYear"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="Enter founding year"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (
+                  teamFoundingYear?.invalid &&
+                  (teamFoundingYear?.dirty || teamFoundingYear?.touched)
+                ) {
+                  @if (teamFoundingYear?.errors?.["required"]) {
+                    Founding Year is required
+                  } @else if (teamFoundingYear?.errors?.["pattern"]) {
+                    Enter a valid year
+                  }
+                }
+              </p>
+            </div>
+            <div class="space-y-2">
+              <label
+                for="teamMaxCapacity"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Max Capacity
+              </label>
+
+              <input
+                id="teamMaxCapacity"
+                name="max_capacity"
+                formControlName="teamMaxCapacity"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="20"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (
+                  teamMaxCapacity?.invalid &&
+                  (teamMaxCapacity?.dirty || teamMaxCapacity?.touched)
+                ) {
+                  @if (teamMaxCapacity?.errors?.["pattern"]) {
+                    Enter a valid number
+                  }
+                }
+              </p>
+            </div>
+            <!-- 
+            <div class="space-y-2">
+              <label
+                for="af-submit-app-category"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Category
+              </label>
+
+              <select
+                id="af-submit-app-category"
+                class="py-2 px-3 pe-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+              >
+                <option selected>Select a category</option>
+                <option>Ecommerce</option>
+                <option>Finance</option>
+                <option>Marketplace</option>
+                <option>Social</option>
+                <option>Others</option>
+              </select>
+            </div> -->
+
+            <!-- <div class="space-y-2">
+              <label
+                for="af-submit-app-description"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Description
+              </label>
+
+              <textarea
+                id="af-submit-app-description"
+                class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                rows="6"
+                placeholder="A detailed summary will better explain your products to the audiences. Our users will see this in your dedicated product page."
+              ></textarea>
+            </div> -->
+            <p
+              class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+            >
+              {{ errorMessage }}
+            </p>
+            <p
+              class="px-3 bg-clip-text bg-gradient-to-tl from-green-500 to-green-800 text-transparent"
+            >
+              {{ successMessage }}
+            </p>
+          </div>
+          <!-- End Grid -->
+          <div class="flex justify-center gap-x-2 mt-6">
+            <button
+              type="button"
+              (click)="resetCreateForm()"
+              class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700 focus:outline-none focus:bg-red-700 disabled:opacity-50 disabled:pointer-events-none"
+            >
+              Reset
+            </button>
+            <button
+              type="button"
+              (click)="submitCreateForm()"
+              class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+            >
+              Create Team
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- End Card -->
+    </form>
+  </div>
+  <!-- End Card Section -->
+</main>
