@@ -1,0 +1,321 @@
+<main class="w-screen">
+  <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl">Edit player</h1>
+
+  <!-- Card Section -->
+  <div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <form [formGroup]="editForm">
+      <!-- Card -->
+      <div
+        class="bg-white rounded-xl shadow p-4 sm:p-7 border-2 border-gray-200"
+      >
+        <div class="pt-0 p-4 sm:pt-0 sm:p-7">
+          <!-- Grid -->
+          <div class="space-y-4 sm:space-y-6">
+            <div class="sm:col-span-12 mt-6">
+              <h2 class="text-3xl font-semibold text-gray-800">
+                Player Information
+              </h2>
+            </div>
+            <div class="space-y-2">
+              <label
+                for="firstName"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                First Name
+              </label>
+
+              <input
+                id="firstName"
+                formControlName="firstName"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="Enter first name"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (
+                  firstName?.invalid && (firstName?.dirty || firstName?.touched)
+                ) {
+                  @if (firstName?.errors?.["required"]) {
+                    First name is required
+                  } @else if (firstName?.errors?.["maxlength"]) {
+                    First name is too long
+                  }
+                }
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <label
+                for="lastName"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Last Name
+              </label>
+              <input
+                id="lastName"
+                formControlName="lastName"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="Enter last name"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (
+                  lastName?.invalid && (lastName?.dirty || lastName?.touched)
+                ) {
+                  @if (lastName?.errors?.["required"]) {
+                    Last name is required
+                  } @else if (lastName?.errors?.["maxlength"]) {
+                    Last name is too long
+                  }
+                }
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <label
+                for="height"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Height
+              </label>
+
+              <input
+                id="height"
+                formControlName="height"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="6.00"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (height?.invalid && (height?.dirty || height?.touched)) {
+                  @if (height?.errors?.["required"]) {
+                    Height is required
+                  } @else if (height?.errors?.["maxlength"]) {
+                    Height is too large
+                  } @else if (height?.errors?.["pattern"]) {
+                    Enter a valid height (eg. 6.00)
+                  }
+                }
+              </p>
+            </div>
+            <div class="space-y-2">
+              <label
+                for="weight"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Weight
+              </label>
+
+              <input
+                id="weight"
+                formControlName="weight"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="150.00"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (weight?.invalid && (weight?.dirty || weight?.touched)) {
+                  @if (weight?.errors?.["required"]) {
+                    Weight is required
+                  } @else if (weight?.errors?.["maxlength"]) {
+                    Weight is too large
+                  } @else if (weight?.errors?.["pattern"]) {
+                    Enter a valid Weight (eg. 150.00)
+                  }
+                }
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <label
+                for="position"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Position
+              </label>
+              <select
+                id="position"
+                formControlName="position"
+                class="py-2 px-3 pe-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+              >
+                <option value="" disabled selected>Select a position</option>
+                <option value="Forward">Forward</option>
+                <option value="Midfielder">Midfielder</option>
+                <option value="Defender">Defender</option>
+                <option value="Goalkeeper">Goalkeeper</option>
+              </select>
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (
+                  position?.invalid && (position?.dirty || position?.touched)
+                ) {
+                  @if (position?.errors?.["required"]) {
+                    Position is required
+                  }
+                }
+              </p>
+            </div>
+            <div class="space-y-2">
+              <label
+                for="jerseyNumber"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Jersey Number
+              </label>
+
+              <input
+                id="jerseyNumber"
+                formControlName="jerseyNumber"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="Enter a number"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (
+                  jerseyNumber?.invalid &&
+                  (jerseyNumber?.dirty || jerseyNumber?.touched)
+                ) {
+                  @if (jerseyNumber?.errors?.["required"]) {
+                    Jersey number is required
+                  } @else if (jerseyNumber?.errors?.["pattern"]) {
+                    Enter a valid number
+                  } @else if (jerseyNumber?.errors?.["maxlength"]) {
+                    Number too large
+                  }
+                }
+              </p>
+            </div>
+            <div class="space-y-2">
+              <label
+                for="dateOfBirth"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Date of Birth
+              </label>
+
+              <input
+                id="dateOfBirth"
+                formControlName="dateOfBirth"
+                type="date"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="150.0"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (
+                  dateOfBirth?.invalid &&
+                  (dateOfBirth?.dirty || dateOfBirth?.touched)
+                ) {
+                  @if (dateOfBirth?.errors?.["required"]) {
+                    Select a date
+                  }
+                }
+              </p>
+            </div>
+            <div class="space-y-2">
+              <label
+                for="goalsScored"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Goals Scored
+              </label>
+
+              <input
+                id="goalsScored"
+                formControlName="goalsScored"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="0"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (
+                  goalsScored?.invalid &&
+                  (goalsScored?.dirty || goalsScored?.touched)
+                ) {
+                  @if (goalsScored?.errors?.["pattern"]) {
+                    Enter a valid number
+                  } @else if (goalsScored?.errors?.["maxlength"]) {
+                    Number too large
+                  }
+                }
+              </p>
+            </div>
+            <div class="space-y-2">
+              <label
+                for="teamId"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Team
+              </label>
+              <select
+                id="teamId"
+                formControlName="teamId"
+                class="py-2 px-3 pe-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+              >
+                <option value="" disabled selected>Select a Team</option>
+                @for (team of teams; track team.id) {
+                  <option value="{{ team.id }}">
+                    {{ team.team_name }}
+                  </option>
+                }
+              </select>
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (teamId?.invalid && (teamId?.dirty || teamId?.touched)) {
+                  @if (teamId?.errors?.["required"]) {
+                    Team is required
+                  }
+                }
+              </p>
+            </div>
+
+            <p
+              class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+            >
+              {{ errorMessage }}
+            </p>
+            <p
+              class="px-3 bg-clip-text bg-gradient-to-tl from-green-500 to-green-800 text-transparent"
+            >
+              {{ successMessage }}
+            </p>
+          </div>
+          <!-- End Grid -->
+          <div class="flex justify-center gap-x-2 mt-6">
+            <button
+              type="button"
+              (click)="resetEditForm()"
+              class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700 focus:outline-none focus:bg-red-700 disabled:opacity-50 disabled:pointer-events-none"
+            >
+              Reset
+            </button>
+            <button
+              type="button"
+              (click)="submitEditForm()"
+              class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- End Card -->
+    </form>
+  </div>
+  <!-- End Card Section -->
+</main>

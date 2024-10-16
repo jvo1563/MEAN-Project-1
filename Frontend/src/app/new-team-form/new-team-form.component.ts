@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Team } from '../models/team';
 import { HttpService } from '../services/http.service';
 import { RefreshTeamsService } from '../services/refresh-teams.service';
-
 import {
   FormControl,
   FormGroup,
@@ -84,13 +83,14 @@ export class NewTeamFormComponent {
         this.createForm.value.teamCity,
         this.createForm.value.teamFoundingYear,
         0, // total_players
-        this.createForm.value.teamMaxCapacity || 0,
+        this.createForm.value.teamMaxCapacity || 20,
         0, // wins
         0, // losses
       );
       this.httpService.addTeam(newTeam).subscribe({
         next: (response) => {
           this.successMessage = 'Team created successfully';
+          this.errorMessage = '';
           setTimeout(() => {
             this.successMessage = '';
           }, 5000);

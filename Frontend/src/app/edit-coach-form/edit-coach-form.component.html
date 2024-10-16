@@ -1,9 +1,9 @@
 <main class="w-screen">
-  <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl">Create new team</h1>
+  <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl">Edit coach</h1>
 
   <!-- Card Section -->
   <div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-    <form [formGroup]="createForm">
+    <form [formGroup]="editForm">
       <!-- Card -->
       <div
         class="bg-white rounded-xl shadow p-4 sm:p-7 border-2 border-gray-200"
@@ -13,36 +13,34 @@
           <div class="space-y-4 sm:space-y-6">
             <div class="sm:col-span-12 mt-6">
               <h2 class="text-3xl font-semibold text-gray-800">
-                Team Information
+                Coach Information
               </h2>
             </div>
             <div class="space-y-2">
               <label
-                for="teamName"
+                for="firstName"
                 class="inline-block text-sm font-medium text-gray-800 mt-2.5"
               >
-                Name
+                First Name
               </label>
 
               <input
-                id="teamName"
-                name="team_name"
-                formControlName="teamName"
+                id="firstName"
+                formControlName="firstName"
                 type="text"
                 class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                placeholder="Enter team name"
+                placeholder="Enter first name"
               />
-
               <p
                 class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
               >
                 @if (
-                  teamName?.invalid && (teamName?.dirty || teamName?.touched)
+                  firstName?.invalid && (firstName?.dirty || firstName?.touched)
                 ) {
-                  @if (teamName?.errors?.["required"]) {
-                    Name is required
-                  } @else if (teamName?.errors?.["maxlength"]) {
-                    Name is too long
+                  @if (firstName?.errors?.["required"]) {
+                    First name is required
+                  } @else if (firstName?.errors?.["maxlength"]) {
+                    First name is too long
                   }
                 }
               </p>
@@ -50,32 +48,28 @@
 
             <div class="space-y-2">
               <label
-                for="teamLogo"
+                for="lastName"
                 class="inline-block text-sm font-medium text-gray-800 mt-2.5"
               >
-                Logo URL
+                Last Name
               </label>
-
               <input
-                id="teamLogo"
-                name="team_logo"
-                formControlName="teamLogo"
+                id="lastName"
+                formControlName="lastName"
                 type="text"
                 class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                placeholder="https://example.com/logo.png"
+                placeholder="Enter last name"
               />
               <p
                 class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
               >
                 @if (
-                  teamLogo?.invalid && (teamLogo?.dirty || teamLogo?.touched)
+                  lastName?.invalid && (lastName?.dirty || lastName?.touched)
                 ) {
-                  @if (teamLogo?.errors?.["required"]) {
-                    Logo URL is required
-                  } @else if (teamLogo?.errors?.["pattern"]) {
-                    Enter a valid URL
-                  } @else if (teamLogo?.errors?.["maxlength"]) {
-                    Logo URL is too long
+                  @if (lastName?.errors?.["required"]) {
+                    Last name is required
+                  } @else if (lastName?.errors?.["maxlength"]) {
+                    Last name is too long
                   }
                 }
               </p>
@@ -83,60 +77,29 @@
 
             <div class="space-y-2">
               <label
-                for="teamCity"
+                for="yearsOfExperience"
                 class="inline-block text-sm font-medium text-gray-800 mt-2.5"
               >
-                City
+                Years of Experience
               </label>
 
               <input
-                id="teamCity"
-                name="team_city"
-                formControlName="teamCity"
+                id="yearsOfExperience"
+                formControlName="yearsOfExperience"
                 type="text"
                 class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                placeholder="Enter city name"
+                placeholder="0"
               />
               <p
                 class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
               >
                 @if (
-                  teamCity?.invalid && (teamCity?.dirty || teamCity?.touched)
+                  yearsOfExperience?.invalid &&
+                  (yearsOfExperience?.dirty || yearsOfExperience?.touched)
                 ) {
-                  @if (teamCity?.errors?.["required"]) {
-                    Team City is required
-                  } @else if (teamCity?.errors?.["maxlength"]) {
-                    Team City is too long
-                  }
-                }
-              </p>
-            </div>
-            <div class="space-y-2">
-              <label
-                for="teamFoundingYear"
-                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
-              >
-                Founding Year
-              </label>
-
-              <input
-                id="teamFoundingYear"
-                name="team_founded_year"
-                formControlName="teamFoundingYear"
-                type="text"
-                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                placeholder="Enter founding year"
-              />
-              <p
-                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
-              >
-                @if (
-                  teamFoundingYear?.invalid &&
-                  (teamFoundingYear?.dirty || teamFoundingYear?.touched)
-                ) {
-                  @if (teamFoundingYear?.errors?.["required"]) {
-                    Founding Year is required
-                  } @else if (teamFoundingYear?.errors?.["pattern"]) {
+                  @if (yearsOfExperience?.errors?.["required"]) {
+                    Enter a year
+                  } @else {
                     Enter a valid year
                   }
                 }
@@ -144,70 +107,119 @@
             </div>
             <div class="space-y-2">
               <label
-                for="teamMaxCapacity"
+                for="salary"
                 class="inline-block text-sm font-medium text-gray-800 mt-2.5"
               >
-                Max Capacity
+                Salary
               </label>
 
               <input
-                id="teamMaxCapacity"
-                name="max_capacity"
-                formControlName="teamMaxCapacity"
+                id="salary"
+                formControlName="salary"
                 type="text"
                 class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                placeholder="20"
+                placeholder="0"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (salary?.invalid && (salary?.dirty || salary?.touched)) {
+                  Enter a valid number
+                }
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <label
+                for="email"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                formControlName="email"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="example@gmail.com"
+              />
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
+              >
+                @if (email?.invalid && (email?.dirty || email?.touched)) {
+                  @if (email?.errors?.["required"]) {
+                    Email is required
+                  } @else if (email?.errors?.["pattern"]) {
+                    Enter a valid email
+                  } @else if (email?.errors?.["maxlength"]) {
+                    Email is too long
+                  }
+                }
+              </p>
+            </div>
+            <div class="space-y-2">
+              <label
+                for="phoneNumber"
+                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              >
+                Phone Number
+              </label>
+
+              <input
+                id="phoneNumber"
+                formControlName="phoneNumber"
+                type="text"
+                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                placeholder="Enter a number"
               />
               <p
                 class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
               >
                 @if (
-                  teamMaxCapacity?.invalid &&
-                  (teamMaxCapacity?.dirty || teamMaxCapacity?.touched)
+                  phoneNumber?.invalid &&
+                  (phoneNumber?.dirty || phoneNumber?.touched)
                 ) {
-                  @if (teamMaxCapacity?.errors?.["pattern"]) {
+                  @if (phoneNumber?.errors?.["required"]) {
+                    Phone number is required
+                  } @else if (phoneNumber?.errors?.["pattern"]) {
+                    Enter a valid number
+                  } @else if (phoneNumber?.errors?.["maxlength"]) {
                     Enter a valid number
                   }
                 }
               </p>
             </div>
-            <!-- 
+
             <div class="space-y-2">
               <label
-                for="af-submit-app-category"
+                for="teamId"
                 class="inline-block text-sm font-medium text-gray-800 mt-2.5"
               >
-                Category
+                Team
               </label>
-
               <select
-                id="af-submit-app-category"
+                id="teamId"
+                formControlName="teamId"
                 class="py-2 px-3 pe-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
               >
-                <option selected>Select a category</option>
-                <option>Ecommerce</option>
-                <option>Finance</option>
-                <option>Marketplace</option>
-                <option>Social</option>
-                <option>Others</option>
+                <option value="" disabled selected>Select a Team</option>
+                @for (team of teams; track team.id) {
+                  <option value="{{ team.id }}">
+                    {{ team.team_name }}
+                  </option>
+                }
               </select>
-            </div> -->
-
-            <!-- <div class="space-y-2">
-              <label
-                for="af-submit-app-description"
-                class="inline-block text-sm font-medium text-gray-800 mt-2.5"
+              <p
+                class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
               >
-                Description
-              </label>
+                @if (teamId?.invalid && (teamId?.dirty || teamId?.touched)) {
+                  @if (teamId?.errors?.["required"]) {
+                    Team is required
+                  }
+                }
+              </p>
+            </div>
 
-              <textarea
-                id="af-submit-app-description"
-                class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                rows="6"
-                placeholder="A detailed summary will better explain your products to the audiences. Our users will see this in your dedicated product page."
-              ></textarea>
-            </div> -->
             <p
               class="px-3 bg-clip-text bg-gradient-to-tl from-red-500 to-red-800 text-transparent"
             >
@@ -223,17 +235,17 @@
           <div class="flex justify-center gap-x-2 mt-6">
             <button
               type="button"
-              (click)="resetCreateForm()"
+              (click)="resetEditForm()"
               class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700 focus:outline-none focus:bg-red-700 disabled:opacity-50 disabled:pointer-events-none"
             >
               Reset
             </button>
             <button
               type="button"
-              (click)="submitCreateForm()"
+              (click)="submitEditForm()"
               class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
             >
-              Create
+              Update
             </button>
           </div>
         </div>

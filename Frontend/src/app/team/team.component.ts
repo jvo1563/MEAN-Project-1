@@ -3,13 +3,16 @@ import { Team } from '../models/team';
 import { HttpService } from '../services/http.service';
 import { ActivatedRoute } from '@angular/router';
 import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { Player } from '../models/player';
 import { Coach } from '../models/coach';
+import { CommonModule } from '@angular/common';
+import { RefreshTeamsService } from '../services/refresh-teams.service';
 
 @Component({
   selector: 'app-team',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, CommonModule],
   templateUrl: './team.component.html',
   styleUrl: './team.component.css',
 })
@@ -19,7 +22,12 @@ export class TeamComponent {
   players: Player[] = [];
   coaches: Coach[] = [];
 
-  constructor(private route: ActivatedRoute, private httpService: HttpService) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private httpService: HttpService,
+    private refreshTeamsService: RefreshTeamsService,
+  ) {
     this.route.params.subscribe((params) => {
       this.teamID = params['id'];
       this.getTeam();
@@ -40,7 +48,7 @@ export class TeamComponent {
           response.body.total_players,
           response.body.max_capacity,
           response.body.wins,
-          response.body.losses
+          response.body.losses,
         );
       }
     });
@@ -64,8 +72,8 @@ export class TeamComponent {
                 player.date_of_birth,
                 player.goals_scored,
                 player.team_id,
-                player.team
-              )
+                player.team,
+              ),
             );
           }
         });
@@ -89,11 +97,29 @@ export class TeamComponent {
                 coach.email,
                 coach.phone_number,
                 coach.team_id,
-                coach.team
-              )
+                coach.team,
+              ),
             );
         });
       this.coaches = tempCoaches;
+    });
+  }
+  deletePlayer(id: number) {
+    this.httpService.deletePlayer(id).subscribe((response) => {
+      this.getTeam();
+      this.getTeamPlayers();
+    });
+  }
+  deleteCoach(id: number) {
+    this.httpService.deleteCoach(id).subscribe((response) => {
+      this.getTeam();
+      this.getTeamCoaches();
+    });
+  }
+  deleteTeam() {
+    this.httpService.deleteTeam(this.team.id).subscribe((response) => {
+      this.refreshTeamsService.triggerRefresh();
+      this.router.navigate(['teams']);
     });
   }
 }

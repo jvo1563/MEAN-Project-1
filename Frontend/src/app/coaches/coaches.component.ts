@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { Coach } from '../models/coach';
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-coaches',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, CommonModule],
   templateUrl: './coaches.component.html',
   styleUrl: './coaches.component.css',
 })
@@ -32,8 +34,8 @@ export class CoachesComponent {
                 coach.email,
                 coach.phone_number,
                 coach.team_id,
-                coach.team
-              )
+                coach.team,
+              ),
             );
           else
             tempCoaches.push(
@@ -50,11 +52,17 @@ export class CoachesComponent {
                   team_name: 'No Team',
                   team_logo:
                     'https://i.pinimg.com/originals/c9/af/8e/c9af8efe164f75b2d3aaebf5534892b0.png',
-                }
-              )
+                },
+              ),
             );
         });
       this.coaches = tempCoaches;
+    });
+  }
+
+  deleteCoach(id: number) {
+    this.httpService.deleteCoach(id).subscribe((response) => {
+      this.getCoaches();
     });
   }
 }
