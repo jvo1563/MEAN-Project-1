@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://6e9a-12-74-244-73.ngrok-free.app/api',
+  apiUrl: 'https://mean-project-1-a0j5.onrender.com/api',
 };
