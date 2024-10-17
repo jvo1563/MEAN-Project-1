@@ -57,6 +57,7 @@ export class CoachesComponent {
             );
         });
       this.coaches = tempCoaches;
+      this.reloadPreline();
     });
   }
 
@@ -64,5 +65,14 @@ export class CoachesComponent {
     this.httpService.deleteCoach(id).subscribe((response) => {
       this.getCoaches();
     });
+  }
+
+  reloadPreline() {
+    setTimeout(() => {
+      window.HSStaticMethods.autoInit(['dropdown']);
+    }, 100);
+    setTimeout(() => {
+      window.HSStaticMethods.autoInit(['dropdown']);
+    }, 500);
   }
 }

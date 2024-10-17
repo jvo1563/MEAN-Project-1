@@ -51,6 +51,7 @@ export class TeamComponent {
           response.body.losses,
         );
       }
+      this.reloadPreline();
     });
   }
 
@@ -78,6 +79,7 @@ export class TeamComponent {
           }
         });
       this.players = tempPlayers;
+      this.reloadPreline();
     });
   }
 
@@ -102,6 +104,7 @@ export class TeamComponent {
             );
         });
       this.coaches = tempCoaches;
+      this.reloadPreline();
     });
   }
   deletePlayer(id: number) {
@@ -121,5 +124,14 @@ export class TeamComponent {
       this.refreshTeamsService.triggerRefresh();
       this.router.navigate(['teams']);
     });
+  }
+
+  reloadPreline() {
+    setTimeout(() => {
+      window.HSStaticMethods.autoInit(['dropdown']);
+    }, 100);
+    setTimeout(() => {
+      window.HSStaticMethods.autoInit(['dropdown']);
+    }, 500);
   }
 }

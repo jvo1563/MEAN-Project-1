@@ -62,6 +62,7 @@ export class PlayersComponent {
           }
         });
       this.players = tempPlayers;
+      this.reloadPreline();
     });
   }
 
@@ -69,5 +70,14 @@ export class PlayersComponent {
     this.httpService.deletePlayer(id).subscribe((response) => {
       this.getPlayers();
     });
+  }
+
+  reloadPreline() {
+    setTimeout(() => {
+      window.HSStaticMethods.autoInit(['dropdown']);
+    }, 100);
+    setTimeout(() => {
+      window.HSStaticMethods.autoInit(['dropdown']);
+    }, 500);
   }
 }
