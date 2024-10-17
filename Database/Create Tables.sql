@@ -41,11 +41,6 @@ CREATE TABLE "coach" (
 ALTER TABLE "player" ADD FOREIGN KEY ("team_id") REFERENCES "team" ("id") ON DELETE SET NULL;
 ALTER TABLE "coach" ADD FOREIGN KEY ("team_id") REFERENCES "team" ("id") ON DELETE SET NULL;
 
--- Add Indexes for performance optimization
-CREATE INDEX idx_team_name ON team(team_name);
-CREATE INDEX idx_player_team_id ON player(team_id);
-CREATE INDEX idx_coach_team_id ON coach(team_id);
-
 -- Function for keeping total_players updated
 CREATE OR REPLACE FUNCTION update_total_players()
 RETURNS TRIGGER AS $$
@@ -55,32 +50,27 @@ BEGIN
     UPDATE team
     SET total_players = (SELECT COUNT(*) FROM player WHERE team_id = NEW.team_id)
     WHERE id = NEW.team_id;
-  
   -- Handle DELETE: update the total_players for the old team
   ELSIF TG_OP = 'DELETE' THEN
     UPDATE team
     SET total_players = (SELECT COUNT(*) FROM player WHERE team_id = OLD.team_id)
     WHERE id = OLD.team_id;
-  
   -- Handle UPDATE where the team_id changes: update both old and new teams
   ELSIF TG_OP = 'UPDATE' AND OLD.team_id IS DISTINCT FROM NEW.team_id THEN
     -- Update the old team
     UPDATE team
     SET total_players = (SELECT COUNT(*) FROM player WHERE team_id = OLD.team_id)
     WHERE id = OLD.team_id;
-    
     -- Update the new team
     UPDATE team
     SET total_players = (SELECT COUNT(*) FROM player WHERE team_id = NEW.team_id)
     WHERE id = NEW.team_id;
-
   -- Handle UPDATE where team_id remains the same: just update the current team
   ELSIF TG_OP = 'UPDATE' THEN
     UPDATE team
     SET total_players = (SELECT COUNT(*) FROM player WHERE team_id = NEW.team_id)
     WHERE id = NEW.team_id;
   END IF;
-
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
@@ -96,7 +86,7 @@ RETURNS TRIGGER AS $$
 BEGIN
   -- Count the current number of players in the team
   IF (SELECT COUNT(*) FROM player WHERE team_id = NEW.team_id) >= (SELECT max_capacity FROM team WHERE id = NEW.team_id) THEN
-    RAISE EXCEPTION 'Cannot add more players, team is at maximum capacity';
+    RAISE EXCEPTION 'Team is at maximum capacity';
   END IF;
   RETURN NEW;
 END;
@@ -106,3 +96,9 @@ CREATE TRIGGER check_max_capacity
 BEFORE INSERT OR UPDATE ON player
 FOR EACH ROW
 EXECUTE FUNCTION enforce_max_capacity();
+
+
+-- Add Indexes for performance optimization
+CREATE INDEX idx_team_name ON team(team_name);
+CREATE INDEX idx_player_team_id ON player(team_id);
+CREATE INDEX idx_coach_team_id ON coach(team_id);
