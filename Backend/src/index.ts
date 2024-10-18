@@ -9,16 +9,20 @@ const express = require("express");
 require("dotenv").config();
 
 const app = express();
-app.use(express.json());
+app.use(express.json()); // Middleware to parse JSON request bodies
 
+// Enabling CORS with a whitelist of allowed origins from environment variables
 const cors = require("cors");
 app.use(cors({ origin: process.env.CORS_WHITELIST.split(",") }));
 
+// Registering routers for team, player, and coach endpoints
 app.use("/api/team", teamRouter);
 app.use("/api/player", playerRouter);
 app.use("/api/coach", coachRouter);
 
+// Middleware for handling requests to unknown endpoints
 app.use(unknownEndpoint);
+// Middleware for centralized error handling
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;

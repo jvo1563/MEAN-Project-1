@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import { Player } from "../entity/Player";
 import { AppDataSource } from "../data-source";
 
+// Route to get all players
 router.get("/", async (req: Request, res: Response, next: NextFunction) => {
 	const playerRepository = AppDataSource.getRepository(Player);
 	await playerRepository
@@ -13,6 +14,7 @@ router.get("/", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// Route to get a specific player by ID
 router.get("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const playerRepository = AppDataSource.getRepository(Player);
 	const playerId = parseInt(req.params.id);
@@ -32,6 +34,7 @@ router.get("/:id", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// Route to create a new player
 router.post("/", async (req: Request, res: Response, next: NextFunction) => {
 	const playerRepository = AppDataSource.getRepository(Player);
 	await playerRepository
@@ -42,10 +45,12 @@ router.post("/", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// Route to update an existing player by ID
 router.put("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const playerRepository = AppDataSource.getRepository(Player);
 	const playerId = parseInt(req.params.id);
 
+	// Prevent changing the player ID in the request body
 	if (req.body.id && req.body.id != playerId) {
 		return res.status(400).json({ message: "Player ID cannot be changed" });
 	}
@@ -66,6 +71,7 @@ router.put("/:id", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// Route to delete a player by ID
 router.delete("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const playerRepository = AppDataSource.getRepository(Player);
 	const playerId = parseInt(req.params.id);

@@ -18,7 +18,6 @@ declare global {
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'preline';
   constructor(private router: Router) {}
   ngOnInit() {
     this.router.events.subscribe((event: Event) => {

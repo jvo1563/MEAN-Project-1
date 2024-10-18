@@ -14,10 +14,12 @@ import { CommonModule } from '@angular/common';
 export class CoachesComponent {
   coaches: Coach[] = [];
 
+  // Fetches the coaches when the component is initialized
   constructor(private httpService: HttpService) {
     this.getCoaches();
   }
 
+  // Fetches the list of coaches from the API
   getCoaches() {
     this.httpService.getCoaches().subscribe((response) => {
       let tempCoaches: Coach[] = [];
@@ -61,12 +63,14 @@ export class CoachesComponent {
     });
   }
 
+  // Deletes a coach by ID and refreshes the coach list
   deleteCoach(id: number) {
     this.httpService.deleteCoach(id).subscribe((response) => {
       this.getCoaches();
     });
   }
 
+  // Reloads dropdowns or other UI elements after changes
   reloadPreline() {
     setTimeout(() => {
       window.HSStaticMethods.autoInit(['dropdown']);

@@ -11,12 +11,14 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  teams: Team[] = [];
+
+  // Fetches the list of teams when the component is initialized
   constructor(private httpService: HttpService) {
     this.getTeams();
   }
 
-  teams: Team[] = [];
-
+  // Fetches the list of teams from the API
   getTeams() {
     this.httpService.getTeams().subscribe((response) => {
       let tempTeams: Team[] = [];
@@ -32,8 +34,8 @@ export class HomeComponent {
               team.total_players,
               team.max_capacity,
               team.wins,
-              team.losses
-            )
+              team.losses,
+            ),
           );
         });
       this.teams = tempTeams;

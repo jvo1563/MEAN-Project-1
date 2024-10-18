@@ -12,18 +12,20 @@ import { RouterLink } from '@angular/router';
   styleUrl: './sidenav.component.css',
 })
 export class SidenavComponent {
+  teams: Team[] = [];
+
   constructor(
     private httpService: HttpService,
     private refreshTeamsService: RefreshTeamsService,
   ) {
     this.getTeams();
+    // Using a data pass service to know when teams is updated to reload sidebar
     this.refreshTeamsService.refreshObservable$.subscribe(() => {
       this.getTeams();
     });
   }
 
-  teams: Team[] = [];
-
+  // Get all teams
   getTeams() {
     this.httpService.getTeams().subscribe((response) => {
       let tempTeams: Team[] = [];

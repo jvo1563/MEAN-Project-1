@@ -1,5 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 
+//  Centralized place to handle errors
+//  Checks the type of errors and throws an apprioriate response.
 export const errorHandler = (error: Error, req: Request, res: Response, next: NextFunction) => {
 	console.error(`${error.name}: ${error.message}`);
 	if (error.name === "QueryFailedError") {

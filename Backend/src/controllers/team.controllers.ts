@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import { Team } from "../entity/Team";
 import { AppDataSource } from "../data-source";
 
+// Get all
 router.get("/", async (req: Request, res: Response, next: NextFunction) => {
 	const teamRepository = AppDataSource.getRepository(Team);
 	await teamRepository
@@ -13,6 +14,7 @@ router.get("/", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// Get by ID
 router.get("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const teamRepository = AppDataSource.getRepository(Team);
 	const teamId = parseInt(req.params.id);
@@ -32,6 +34,7 @@ router.get("/:id", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// POST
 router.post("/", async (req: Request, res: Response, next: NextFunction) => {
 	const teamRepository = AppDataSource.getRepository(Team);
 	await teamRepository
@@ -42,10 +45,12 @@ router.post("/", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// UPDATE
 router.put("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const teamRepository = AppDataSource.getRepository(Team);
 	const teamId = parseInt(req.params.id);
 
+	// Prevent changing of id
 	if (req.body.id && req.body.id != teamId) {
 		return res.status(400).json({ message: "Team ID cannot be changed" });
 	}
@@ -66,6 +71,7 @@ router.put("/:id", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// Delete
 router.delete("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const teamRepository = AppDataSource.getRepository(Team);
 	const teamId = parseInt(req.params.id);

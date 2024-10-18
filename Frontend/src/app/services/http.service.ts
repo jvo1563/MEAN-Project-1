@@ -12,6 +12,7 @@ import { environment } from './../../environments/environment';
 export class HttpService {
   constructor(private http: HttpClient) {}
 
+  // Methods for teams
   getTeams(): Observable<HttpResponse<Team[]>> {
     return this.http.get<Team[]>(`${environment.apiUrl}/team`, {
       observe: 'response',
@@ -52,6 +53,7 @@ export class HttpService {
     );
   }
 
+  // Methods for players
   getPlayers(): Observable<HttpResponse<Player[]>> {
     return this.http.get<Player[]>(`${environment.apiUrl}/player`, {
       observe: 'response',
@@ -81,6 +83,7 @@ export class HttpService {
     });
   }
 
+  // Methods for coaches
   getCoaches(): Observable<HttpResponse<Coach[]>> {
     return this.http.get<Coach[]>(`${environment.apiUrl}/coach`, {
       observe: 'response',

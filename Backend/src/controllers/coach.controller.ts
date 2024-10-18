@@ -2,8 +2,8 @@ const router = require("express").Router();
 import { Request, Response, NextFunction } from "express";
 import { Coach } from "../entity/Coach";
 import { AppDataSource } from "../data-source";
-import exp = require("constants");
 
+// Route to get all coaches
 router.get("/", async (req: Request, res: Response, next: NextFunction) => {
 	const coachRepository = AppDataSource.getRepository(Coach);
 	await coachRepository
@@ -14,6 +14,7 @@ router.get("/", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// Route to get a specific coach by ID
 router.get("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const coachRepository = AppDataSource.getRepository(Coach);
 	const coachId = parseInt(req.params.id);
@@ -33,6 +34,7 @@ router.get("/:id", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// Route to create a new coach
 router.post("/", async (req: Request, res: Response, next: NextFunction) => {
 	const coachRepository = AppDataSource.getRepository(Coach);
 	await coachRepository
@@ -43,10 +45,12 @@ router.post("/", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// Route to update an existing coach by ID
 router.put("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const coachRepository = AppDataSource.getRepository(Coach);
 	const coachId = parseInt(req.params.id);
 
+	// Prevent changing the coach ID in the request body
 	if (req.body.id && req.body.id != coachId) {
 		return res.status(400).json({ message: "Coach ID cannot be changed" });
 	}
@@ -67,6 +71,7 @@ router.put("/:id", async (req: Request, res: Response, next: NextFunction) => {
 		.catch((error) => next(error));
 });
 
+// Route to delete a coach by ID
 router.delete("/:id", async (req: Request, res: Response, next: NextFunction) => {
 	const coachRepository = AppDataSource.getRepository(Coach);
 	const coachId = parseInt(req.params.id);

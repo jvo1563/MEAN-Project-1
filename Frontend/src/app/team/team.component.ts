@@ -17,6 +17,7 @@ import { RefreshTeamsService } from '../services/refresh-teams.service';
   styleUrl: './team.component.css',
 })
 export class TeamComponent {
+  // Initialize variables we will be using
   team: Team = new Team(0, '', '', '', 0, 0, 0, 0, 0);
   teamID = 0;
   players: Player[] = [];
@@ -28,6 +29,7 @@ export class TeamComponent {
     private httpService: HttpService,
     private refreshTeamsService: RefreshTeamsService,
   ) {
+    // Subscribes to route parameters and fetches team, players, and coaches
     this.route.params.subscribe((params) => {
       this.teamID = params['id'];
       this.getTeam();
@@ -36,6 +38,7 @@ export class TeamComponent {
     });
   }
 
+  // Fetches the team details based on teamID
   getTeam(): void {
     this.httpService.getTeam(this.teamID).subscribe((response) => {
       if (response.body) {
@@ -55,6 +58,7 @@ export class TeamComponent {
     });
   }
 
+  // Fetches players belonging to the team
   getTeamPlayers() {
     this.httpService.getPlayers().subscribe((response) => {
       let tempPlayers: Player[] = [];
@@ -83,6 +87,7 @@ export class TeamComponent {
     });
   }
 
+  // Fetches coaches belonging to the team
   getTeamCoaches() {
     this.httpService.getCoaches().subscribe((response) => {
       let tempCoaches: Coach[] = [];
@@ -107,25 +112,28 @@ export class TeamComponent {
       this.reloadPreline();
     });
   }
+  // Deletes a player by their ID and refreshes the list of players
   deletePlayer(id: number) {
     this.httpService.deletePlayer(id).subscribe((response) => {
       this.getTeam();
       this.getTeamPlayers();
     });
   }
+  // Deletes a coach by their ID and refreshes the list of coaches
   deleteCoach(id: number) {
     this.httpService.deleteCoach(id).subscribe((response) => {
       this.getTeam();
       this.getTeamCoaches();
     });
   }
+  // Deletes the team and navigates back to the teams page
   deleteTeam() {
     this.httpService.deleteTeam(this.team.id).subscribe((response) => {
       this.refreshTeamsService.triggerRefresh();
       this.router.navigate(['teams']);
     });
   }
-
+  // Function to reload dropdowns or other UI elements after changes
   reloadPreline() {
     setTimeout(() => {
       window.HSStaticMethods.autoInit(['dropdown']);
