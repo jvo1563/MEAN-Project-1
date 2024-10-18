@@ -1,43 +1,110 @@
-# MEAN-Project-1
+# Sports League Management Application
 
-### Objective:
+A full-stack web application to manage teams, players, and coaches in a soccer league.
 
-Create a recreational-sports league-management application that enables a league
-administrator to manage the coaches and players for any of the teams. Choose any
-sport you like! But the admin must possess the ability to view, add, remove and
-alter any of the teams, coaches, or players, including moving a coach/player from
-one team to another. The application should make it easy for admins to do their
-jobs, so clear and concise UI/UX is critical. The application should also take into
-consideration of possible edge cases, like teams having a maximum capacity, what
-happens if there are no coaches assigned to a team, what happens when teams are
-deleted while they have players on them, etc.
+## Deployment
+- The app is deployed on **Render**:
+- Will take 2-3 minutes to fully load frontend and backend intially since it's deployed on a free tier.
+   - Frontend: https://project1.joeny.xyz
+   - Backend: https://mean-project-1-a0j5.onrender.com
 
-### Functional Requirements:
+## Table of Contents
+- [Features](#features)
+- [Technologies](#technologies)
+- [Setup and Installation](#setup-and-installation)
+- [API Documentation](#api-documentation)
+- [Database](#database)
 
--   Must be a full-stack solution consisting of:
-    -   Angular frontend (HTML, CSS, TS)
-    -   Express backend utilizing TypeORM
-    -   PostgreSQL Database
--   Code should be available in a public GitHub repository
--   Possesses all required CRUD functionality
--   Handles edge cases, errors and exceptions effectively, application-wide
-    -   Deleting a team what happens to the members
+## Features
+- Manage teams, players, and coaches.
+- CRUD operations for teams, players, and coaches.
+- Team player count auto-updates with PostgreSQL triggers.
+- Max capacity enforcement for teams.
+- Frontend with Tailwind CSS and Preline components.
 
-### Non-Functional Requirements:
+## Technologies
+- **Frontend**: Angular, Tailwind CSS, Preline
+- **Backend**: Node.js, Express.js, TypeORM
+- **Database**: PostgreSQL
 
--   Well-documented code
--   Code upholds industry best practices (Solid/Dry)
--   Industry-Grade UI (User Interface)
--   Intuitive UX (User Experience)
+## Setup and Installation
 
-### Bonus Objectives (suggestions only):
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/sports-league-management.git
+   cd sports-league-management
+   ```
 
--   Use both types of database for different aspects of your project
--   Achieve 90% code coverage for unit testing
--   Deploy your application to a cloud provider
--   Incorporate the scheduling of actual games into your application
--   Anything else you might find challenging/exciting to implement!
--   (Don’t forget to hit those functional/non-functional requirements first…)
--   Authentication with accounts
+2. Create PostgreSQL Database with Create-Table.sql script in /Database
+   
+2. Start Backend
+   ```bash
+   cd Backend
+   npm install
+   ```
 
+   Set up backend environment variables by creating .env file in /Backend
+    ```bash
+    PORT=express_port
+    NODE_ENV=dev
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_USER=postgres
+    DB_PASSWORD=db_password
+    DB_DATABASE=db_name
+    CORS_WHITELIST=ip,ip,ip
+    ```
+    
+   Run the server
+   ```bash
+   npm run start
+   ```
+
+3. Start Frontend
+   ```bash
+   cd Frontend
+   npm install
+   npm run start
+   ```
+   
+   Change environment files in src/environments/ to connect to your backend
+
+
+## API Documentation
+
+### **Base URL**: `/api`
+
+### Routes:
+
+#### 1. **Team**
+- `GET /api/team`: Get all teams.
+- `POST /api/team`: Create a new team.
+- `GET /api/team/:id`: Get a specific team by ID.
+- `PUT /api/team/:id`: Update a team by ID.
+- `DELETE /api/team/:id`: Delete a team by ID.
+
+#### 2. **Player**
+- `GET /api/player`: Get all players.
+- `POST /api/player`: Create a new player.
+- `GET /api/player/:id`: Get a specific player by ID.
+- `PUT /api/player/:id`: Update a player by ID.
+- `DELETE /api/player/:id`: Delete a player by ID.
+
+#### 3. **Coach**
+- `GET /api/coach`: Get all coaches.
+- `POST /api/coach`: Create a new coach.
+- `GET /api/coach/:id`: Get a specific coach by ID.
+- `PUT /api/coach/:id`: Update a coach by ID.
+- `DELETE /api/coach/:id`: Delete a coach by ID.
+
+## Database
+- PostgreSQL is used for storing team, player, and coach data.
+- Triggers and functions handle business logic like updating `total_players` and enforcing team capacity.
+
+### Tables:
+- **Team**: Stores team details.
+- **Player**: Stores player details.
+- **Coach**: Stores coach details.
+
+### Entity Relational Diagram:
 ![image](ERD.png)
