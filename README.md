@@ -5,7 +5,7 @@ A full-stack web application to manage teams, players, and coaches in a soccer l
 ## Deployment
 - The app is deployed on **Render**:
 - Will take 2-3 minutes to fully load frontend and backend intially since it's deployed on a free tier.
-   - Frontend: [Deployed URL](https://soccer-league-manager.onrender.com)
+   - Frontend: [Deployed URL](https://project1.joenyvo.xyz/)
    - Backend: [Deployed API URL](https://mean-project-1-a0j5.onrender.com)
 
 ## Table of Contents
