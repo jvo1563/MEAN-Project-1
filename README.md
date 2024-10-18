@@ -48,7 +48,7 @@ A full-stack web application to manage teams, players, and coaches in a soccer l
     PORT=express_port
     NODE_ENV=dev
     DB_HOST=localhost
-    DB_PORT=db_port
+    DB_PORT=5432
     DB_USER=postgres
     DB_PASSWORD=db_password
     DB_DATABASE=db_name
@@ -66,8 +66,8 @@ A full-stack web application to manage teams, players, and coaches in a soccer l
    npm install
    npm run start
    ```
-
-   Change environment in src/environments/environments.ts to connect to your backend
+   
+   Change environment files in src/environments/ to connect to your backend
 
 
 ## API Documentation
