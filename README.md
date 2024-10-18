@@ -20,14 +20,12 @@ A full-stack web application to manage teams, players, and coaches in a soccer l
 - CRUD operations for teams, players, and coaches.
 - Team player count auto-updates with PostgreSQL triggers.
 - Max capacity enforcement for teams.
-- Responsive frontend with Tailwind CSS and Preline components.
-- Fully deployed on Render.
+- Frontend with Tailwind CSS and Preline components.
 
 ## Technologies
 - **Frontend**: Angular, Tailwind CSS, Preline
 - **Backend**: Node.js, Express.js, TypeORM
 - **Database**: PostgreSQL
-- **Deployment**: Render
 
 ## Setup and Installation
 
