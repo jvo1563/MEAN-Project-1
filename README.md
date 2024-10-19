@@ -36,8 +36,8 @@ A full-stack web application to manage teams, players, and coaches in a soccer l
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-repo/sports-league-management.git
-    cd sports-league-management
+    git clone https://github.com/jvo1563/MEAN-Project-1.git
+    cd MEAN-Project-1
     ```
 
 2. Create PostgreSQL Database with Create-Table.sql script in /Database
@@ -111,12 +111,6 @@ A full-stack web application to manage teams, players, and coaches in a soccer l
 
 -   PostgreSQL is used for storing team, player, and coach data.
 -   Triggers and functions handle business logic like updating `total_players` and enforcing team capacity.
-
-### Tables:
-
--   **Team**: Stores team details.
--   **Player**: Stores player details.
--   **Coach**: Stores coach details.
 
 ### Entity Relational Diagram:
 
